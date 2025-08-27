@@ -54,6 +54,7 @@ def get_all_salaries():
 @app.route("/", methods=["GET", "POST"])
 def index():
     breakdown = None
+    print("Refreshing Page...")
     if request.method == "POST":
         try:
             gross = float(request.form["gross"].replace(",", ""))

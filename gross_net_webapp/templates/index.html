@@ -18,67 +18,67 @@
     {% endif %}
 
     {% if breakdown %}
-<div class="results-dashboard">
+        <div class="results-dashboard">
 
-    <div class="mini-card">
-        <h3>Monthly Gross</h3>
-        <p>₦{{ breakdown.gross | round(2) }}</p>
-    </div>
+            <div class="mini-card">
+                <h3>Monthly Gross</h3>
+                <p>₦{{ breakdown.gross | round(2) }}</p>
+            </div>
 
-    <div class="mini-card">
-        <h3>Annual Gross</h3>
-        <p>₦{{ breakdown.annual_gross | round(2) }}</p>
-    </div>
+            <div class="mini-card">
+                <h3>Annual Gross</h3>
+                <p>₦{{ breakdown.annual_gross | round(2) }}</p>
+            </div>
 
-    <div class="mini-card">
-        <h3>Annual Pension (8%)</h3>
-        <p>₦{{ breakdown.annual_pension | round(2) }}</p>
-    </div>
+            <div class="mini-card">
+                <h3>Annual Pension (8%)</h3>
+                <p>₦{{ breakdown.annual_pension | round(2) }}</p>
+            </div>
 
-    <div class="mini-card">
-        <h3>CRA1</h3>
-        <p>₦{{ breakdown.cra1 | round(2) }}</p>
-    </div>
+            <div class="mini-card">
+                <h3>CRA1</h3>
+                <p>₦{{ breakdown.cra1 | round(2) }}</p>
+            </div>
 
-    <div class="mini-card">
-        <h3>CRA2</h3>
-        <p>₦{{ breakdown.cra2 | round(2) }}</p>
-    </div>
+            <div class="mini-card">
+                <h3>CRA2</h3>
+                <p>₦{{ breakdown.cra2 | round(2) }}</p>
+            </div>
 
-    <div class="mini-card">
-        <h3>Taxable Income</h3>
-        <p>₦{{ breakdown.taxable_income | round(2) }}</p>
-    </div>
+            <div class="mini-card">
+                <h3>Taxable Income</h3>
+                <p>₦{{ breakdown.taxable_income | round(2) }}</p>
+            </div>
 
-    <div class="mini-card">
-        <h3>Annual Tax</h3>
-        <p>₦{{ breakdown.annual_tax | round(2) }}</p>
-    </div>
+            <div class="mini-card">
+                <h3>Annual Tax</h3>
+                <p>₦{{ breakdown.annual_tax | round(2) }}</p>
+            </div>
 
-    <div class="mini-card">
-        <h3>Monthly Pension</h3>
-        <p>₦{{ breakdown.monthly_pension | round(2) }}</p>
-    </div>
+            <div class="mini-card">
+                <h3>Monthly Pension</h3>
+                <p>₦{{ breakdown.monthly_pension | round(2) }}</p>
+            </div>
 
-    <div class="mini-card">
-        <h3>Monthly Tax</h3>
-        <p>₦{{ breakdown.monthly_tax | round(2) }}</p>
-    </div>
+            <div class="mini-card">
+                <h3>Monthly Tax</h3>
+                <p>₦{{ breakdown.monthly_tax | round(2) }}</p>
+            </div>
 
-    <div class="mini-card">
-        <h3>Monthly Net</h3>
-        <p>₦{{ breakdown.monthly_net | round(2) }}</p>
-    </div>
+            <div class="mini-card">
+                <h3>Monthly Net</h3>
+                <p>₦{{ breakdown.monthly_net | round(2) }}</p>
+            </div>
 
-</div>
+        </div>
 
-<h3>Tax Band Breakdown:</h3>
-<ul>
-    {% for band_income, rate, tax in breakdown.tax_bands %}
-    <li>₦{{ band_income | round(2) }} @ {{ (rate*100)|round(0) }}% = ₦{{ tax | round(2) }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
+        <h3>Tax Band Breakdown:</h3>
+        <ul>
+            {% for band_income, rate, tax in breakdown.tax_bands %}
+            <li>₦{{ band_income | round(2) }} @ {{ (rate*100)|round(0) }}% = ₦{{ tax | round(2) }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 
     <h3>Tax Band Breakdown:</h3>
     <div class="tax-band-dashboard">
