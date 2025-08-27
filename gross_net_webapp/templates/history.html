@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Salary History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Salary History</h1>
+
+    {% if salaries %}
+    <table class="salary-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Gross</th>
+                <th>Annual Pension</th>
+                <th>Annual Tax</th>
+                <th>Monthly Net</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for s in salaries %}
+            <tr>
+                {% for value in s %}
+                <td>{{ value }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p>No salary records found.</p>
+    {% endif %}
+
+    <div class="history-actions">
+        <a href="{{ url_for('export_local') }}" class="btn">Export CSV Locally</a>
+        <a href="{{ url_for('index') }}" class="btn">Back to Calculator</a>
+    </div>
+</body>
+</html>
