@@ -1,6 +1,7 @@
 import sqlite3
+from config import DB_PATH
 
-DB_NAME = "salary.db"
+DB_NAME = DB_PATH
 
 def init_db():
     conn = sqlite3.connect(DB_NAME)
