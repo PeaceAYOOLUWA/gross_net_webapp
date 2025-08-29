@@ -122,6 +122,22 @@ def export_local():
     flash("CSV exported! Check your CSV exports in the project folder.", "success")
     return redirect(url_for("history"))
 
+def init_db():
+    conn = sqlite3.connect(DB_NAME)
+    c = conn.cursor()
+    c.execute("""
+        CREATE TABLE IF NOT EXISTS salaries (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            gross REAL NOT NULL,
+            pension REAL NOT NULL,
+            tax REAL NOT NULL,
+            net REAL NOT NULL,
+            created_at TEXT NOT NULL
+        )
+    """)
+    conn.commit()
+    conn.close()
+    
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000)) 
     app.run(host="0.0.0.0", debug=True, port=5500)
