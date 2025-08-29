@@ -3,9 +3,17 @@ from flask import flash, redirect, url_for
 import sqlite3
 import csv
 from datetime import datetime
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 app = Flask(__name__)
-DB_NAME = "salary.db"
+app.secret_key = "supersecretkey123"
+DB_NAME = "salary.db"\
+
+app.secret_key = os.getenv("SECRET_KEY")
 
 # Tax Band Calculation
 def calculate_tax_bands(taxable_income):
