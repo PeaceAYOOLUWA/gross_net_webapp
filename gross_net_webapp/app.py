@@ -120,7 +120,7 @@ def export_local():
             writer.writerow(row)
 
     flash("CSV exported! Check your CSV exports in the project folder.", "success")
-    return redirect(url_for("history"))
+    # return redirect(url_for("history"))
 
 def init_db():
     conn = sqlite3.connect(DB_NAME)
