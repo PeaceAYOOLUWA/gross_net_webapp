@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, send_file
 import sqlite3
 import csv
 from datetime import datetime
+from flask import flash, redirect, url_for
 
 app = Flask(__name__)
 DB_NAME = "salary.db"
@@ -109,8 +110,9 @@ def export_local():
         writer.writerow(["ID", "Gross", "Annual Pension", "Annual Tax", "Monthly Net", "Date"])
         for row in salaries:
             writer.writerow(row)
-
-    return f"CSV exported locally to {file_path}"
+    flash("CSV exported! Check your CSV exports in the project folder.", "success")
+    return redirect(url_for("history"))  # or wherever you want to redirect
+    
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", debug=True, port=5500)
+    app.run(host="0.0.0.0", debug=True)
